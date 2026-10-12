@@ -4,7 +4,7 @@
 //   - 頁面導覽（navigate）：網路優先，離線時改用快取
 //   - 其他靜態資源：快取優先（檔名含 hash，可安全長期快取）
 // ============================================================
-const CACHE_NAME = 'speed-runner-v7';
+const CACHE_NAME = 'speed-runner-v8';
 const PRECACHE = ['./', './index.html'];
 
 self.addEventListener('install', (event) => {
