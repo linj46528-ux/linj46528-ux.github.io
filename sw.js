@@ -5,7 +5,7 @@
 //   - 其他靜態資源：快取優先（檔名含 hash，可安全長期快取）
 // 第一次需連網開啟一次，之後沒網路也能玩。
 // ============================================================
-const CACHE_NAME = 'match3-v1';
+const CACHE_NAME = 'match3-v2';
 const PRECACHE = ['./', './index.html'];
 
 self.addEventListener('install', (event) => {
