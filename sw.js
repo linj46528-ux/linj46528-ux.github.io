@@ -1,10 +1,11 @@
 // ============================================================
-// 極速跑者 Speed Runner - Service Worker（離線快取）
+// 開心消消樂 - Service Worker（離線快取）
 // 策略：
 //   - 頁面導覽（navigate）：網路優先，離線時改用快取
 //   - 其他靜態資源：快取優先（檔名含 hash，可安全長期快取）
+// 第一次需連網開啟一次，之後沒網路也能玩。
 // ============================================================
-const CACHE_NAME = 'speed-runner-v9';
+const CACHE_NAME = 'match3-v1';
 const PRECACHE = ['./', './index.html'];
 
 self.addEventListener('install', (event) => {
@@ -29,10 +30,10 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
-  // 子遊戲（/match3/）由網路直接處理，不納入跑酷快取，避免互相汙染
-  if (url.pathname.includes('/match3/')) return;
+  // 跑酷子遊戲有自己的 Service Worker，交給它處理，不納入消消樂快取
+  if (url.pathname.includes('/runner/')) return;
 
-  // 頁面導覽：網路優先，失敗改用快取的 index.html
+  // 頁面導覽：網路優先，離線時改用快取的 index.html
   if (request.mode === 'navigate') {
     event.respondWith(
       fetch(request)

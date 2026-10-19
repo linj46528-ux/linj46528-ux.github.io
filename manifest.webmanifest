@@ -1,17 +1,16 @@
 {
-  "name": "極速跑者 Speed Runner",
-  "short_name": "極速跑者",
-  "description": "無盡跑酷網頁遊戲",
-  "lang": "zh-TW",
+  "name": "開心消消樂",
+  "short_name": "消消樂",
+  "description": "開心消消樂 - 甜點三消網頁遊戲，可安裝到桌面離線遊玩",
+  "lang": "zh-Hant",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "orientation": "any",
-  "background_color": "#0a0a2e",
-  "theme_color": "#0a0a2e",
+  "orientation": "portrait",
+  "background_color": "#2a1030",
+  "theme_color": "#ff8fb3",
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
