@@ -4,7 +4,7 @@
 //   - 頁面導覽（navigate）：網路優先，離線時改用快取
 //   - 其他靜態資源：快取優先（檔名含 hash，可安全長期快取）
 // ============================================================
-const CACHE_NAME = 'speed-runner-v8';
+const CACHE_NAME = 'speed-runner-v9';
 const PRECACHE = ['./', './index.html'];
 
 self.addEventListener('install', (event) => {
@@ -28,6 +28,9 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+
+  // 子遊戲（/match3/）由網路直接處理，不納入跑酷快取，避免互相汙染
+  if (url.pathname.includes('/match3/')) return;
 
   // 頁面導覽：網路優先，失敗改用快取的 index.html
   if (request.mode === 'navigate') {
